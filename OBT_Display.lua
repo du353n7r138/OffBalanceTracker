@@ -60,11 +60,13 @@ end
 ---------------------------------------------------------------------------
 function OBT.UpdateTimerPosition()
     OBT.DURATION:ClearAnchors()
-    if OBT.SV.isHideUptime then
-        OBT.DURATION:SetAnchor(CENTER, OBT.PARENT, CENTER, 0, OBT.SV.offsetYTimer - OBT.Default.offsetYTimer)
-    else
-        OBT.DURATION:SetAnchor(CENTER, OBT.PARENT, CENTER, 0, OBT.SV.offsetYTimer)
+
+    local yOffset = OBT.SV.offsetYTimer
+    if not OBT.SV.isHideUptime then
+        yOffset = yOffset + 12
     end
+
+    OBT.DURATION:SetAnchor(CENTER, OBT.PARENT, CENTER, 0, yOffset)
 end
 
 ---------------------------------------------------------------------------

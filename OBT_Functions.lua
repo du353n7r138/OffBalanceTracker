@@ -172,6 +172,16 @@ function OBT.OnEffectChanged(eventCode, changeType, effectSlot, effectName, unit
         return
     end
 
+    -- LOG NEW IDS TO SAVED VARIABLES
+    if not OBT.SV.CachedIDs[abilityId] then
+        OBT.SV.CachedIDs[abilityId] = effectName
+        local count = 0
+        for _ in pairs(OBT.SV.CachedIDs) do count = count + 1 end
+        if OBT.isAuthor then
+            d(string.format("%s Cached ID: |c00BFFF%d|r (%s) - Total: |c00BFFF%d|r", OBT.CHAT, abilityId, effectName, count))
+        end
+    end
+
     local isOB = (effectName == OBT.debuffName or effectName == OBT.cleanDebuffName)
 
     -- UPTIME

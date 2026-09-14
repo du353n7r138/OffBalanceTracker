@@ -1,8 +1,8 @@
 OffBalanceTracker = {
     NAME = "OffBalanceTracker",
     AUTHOR = "@Duesentrieb",
-    VERSION = "20260901",
-    ADDONVERSION = 0004,
+    VERSION = "20260914",
+    ADDONVERSION = 0005,
     CHAT = "|cFF7F00[OBT]|r",
 
     -- UI ELEMENTS
@@ -14,6 +14,7 @@ OffBalanceTracker = {
     UPTIME_LABEL = nil,
     TIME_UPDATE = 100,
 
+    -- ANIMATION
     TIMELINE = nil,
     ANIMATION_SCALEUP = 0,
     ANIMATION_SCALEDOWN = 0,
@@ -40,6 +41,7 @@ OffBalanceTracker = {
     groupRole = 0,
     isTrackingBoss = false,
     hasCombatBoss = false,
+    isAuthor = false,
 
     -- UPTIME TRACKING
     timeFightStart = 0,
@@ -95,7 +97,7 @@ OffBalanceTracker = {
 
         -- TIMER
         fontSizeTimer = 40,
-        offsetYTimer = 12,
+        offsetYTimer = 0,
         isColoredTimer = true,
         ColorTextTimer = { 1, 1, 1, 1 },
         decimalThreshold = 7.5,
@@ -123,9 +125,10 @@ OffBalanceTracker = {
         offsetY = -100,
         isLocked = false,
 
-        -- CHAT SUMMARY
+        -- CHAT SUMMARY & CACHE
         isEnabledChat = false,
         minFightTime = 60,
+        CachedIDs = {},
     },
 
     SV = {},

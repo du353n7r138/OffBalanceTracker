@@ -19,6 +19,11 @@ function OBT.PortSavedVariables()
             OBT.SV[oldKey] = nil
         end
     end
+
+    -- FIX OFFSET
+    if OBT.SV.isHideUptime and OBT.SV.offsetYTimer == 12 then
+        OBT.SV.offsetYTimer = 0
+    end
 end
 
 ---------------------------------------------------------------------------
@@ -32,6 +37,7 @@ function OBT.Initialize()
     OBT.cleanImmuneName = zo_strformat("<<1>>", OBT.immuneName)
 
     OBT.isConsole = IsConsoleUI()
+    OBT.isAuthor = (GetUnitDisplayName("player") == OBT.AUTHOR)
     OBT.SV = ZO_SavedVars:NewAccountWide(OBT.SVName, OBT.SVVersion, GetWorldName(), OBT.Default)
 
     -- PORT OLD SETTINGS
